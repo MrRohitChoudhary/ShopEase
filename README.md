@@ -288,13 +288,13 @@ All 10 tables in `ecommerce_db` satisfy **Third Normal Form (3NF)**.
 
 | Field | Details |
 |-------|---------|
-| **Name** | [Your Full Name] |
-| **Roll Number** | [Your Roll Number] |
-| **College** | [College Name] |
+| **Name** | Rohitkumar,Uzma, Parth, Apurva |
+| **Roll Number** | 67,68,69 |
+| **College** | Modern Education Society College of Engineering Wadia |
 | **Course** | B.Tech / Diploma – Computer Science / IT |
 | **Subject** | Database Management System (DBMS) |
-| **Academic Year** | 2023–24 |
-| **Guide** | [Professor Name] |
+| **Academic Year** | 2025-2026 |
+| **Guide** | Sharadha Maam |
 
 ---
 
