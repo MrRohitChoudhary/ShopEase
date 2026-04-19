@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Place Order – ShopEase</title>
+  <meta name="description" content="Complete your order with secure payment on ShopEase." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo">🛒 Shop<strong>Ease</strong></a>
+      <div class="nav-actions">
+        <a href="cart.html"  class="nav-icon">🛒 Cart</a>
+        <a href="login.html" class="nav-icon">👤 Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Step indicator -->
+  <div class="stepper container" id="stepper">
+    <div class="step active" data-step="1"><span class="step-num">1</span><span class="step-label">Address</span></div>
+    <div class="step-line"></div>
+    <div class="step" data-step="2"><span class="step-num">2</span><span class="step-label">Payment</span></div>
+    <div class="step-line"></div>
+    <div class="step" data-step="3"><span class="step-num">3</span><span class="step-label">Confirm</span></div>
+  </div>
+
+  <main class="order-page container">
+    <div class="checkout-layout">
+
+      <!-- ====== STEP 1: Delivery Address ====== -->
+      <section class="checkout-card glass" id="step1">
+        <h2 class="step-title">📦 Delivery Address</h2>
+
+        <form id="addressForm" novalidate>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" type="text" placeholder="Riya Sharma" required />
+              <span class="error-msg" id="fullNameErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="addrPhone">Phone</label>
+              <input id="addrPhone" type="tel" placeholder="9XXXXXXXXX" required />
+              <span class="error-msg" id="addrPhoneErr"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="addressLine">Address Line</label>
+            <input id="addressLine" type="text" placeholder="House No, Street, Locality" required />
+            <span class="error-msg" id="addrLineErr"></span>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input id="city" type="text" placeholder="Pune" required />
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input id="state" type="text" placeholder="Maharashtra" required />
+            </div>
+            <div class="form-group">
+              <label for="pincode">PIN Code</label>
+              <input id="pincode" type="text" placeholder="411001" pattern="[0-9]{6}" required />
+              <span class="error-msg" id="pinErr"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="addrNextBtn">Continue to Payment →</button>
+        </form>
+      </section>
+
+      <!-- ====== STEP 2: Payment ====== -->
+      <section class="checkout-card glass hidden" id="step2">
+        <h2 class="step-title">💳 Payment Method</h2>
+
+        <div class="payment-methods" role="radiogroup" aria-label="Payment method">
+          <label class="pay-option" id="payUPI">
+            <input type="radio" name="payMethod" value="upi" checked />
+            <div class="pay-icon">📱</div>
+            <div><strong>UPI</strong><br/><small>Google Pay, PhonePe, Paytm</small></div>
+          </label>
+          <label class="pay-option" id="payCard">
+            <input type="radio" name="payMethod" value="credit_card" />
+            <div class="pay-icon">💳</div>
+            <div><strong>Credit / Debit Card</strong><br/><small>Visa, Mastercard, RuPay</small></div>
+          </label>
+          <label class="pay-option" id="payNB">
+            <input type="radio" name="payMethod" value="net_banking" />
+            <div class="pay-icon">🏦</div>
+            <div><strong>Net Banking</strong><br/><small>SBI, HDFC, ICICI, Axis</small></div>
+          </label>
+          <label class="pay-option" id="payWallet">
+            <input type="radio" name="payMethod" value="wallet" />
+            <div class="pay-icon">👜</div>
+            <div><strong>Wallet</strong><br/><small>Mobikwik, Freecharge</small></div>
+          </label>
+          <label class="pay-option" id="payCOD">
+            <input type="radio" name="payMethod" value="cod" />
+            <div class="pay-icon">💵</div>
+            <div><strong>Cash on Delivery</strong><br/><small>Pay when delivered</small></div>
+          </label>
+        </div>
+
+        <!-- UPI sub-form -->
+        <div class="pay-sub-form" id="upiForm">
+          <div class="form-group">
+            <label for="upiId">UPI ID</label>
+            <input id="upiId" type="text" placeholder="yourname@upi" />
+          </div>
+        </div>
+
+        <!-- Card sub-form -->
+        <div class="pay-sub-form hidden" id="cardForm">
+          <div class="form-group">
+            <label for="cardNum">Card Number</label>
+            <input id="cardNum" type="text" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" />
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="cardExp">Expiry (MM/YY)</label>
+              <input id="cardExp" type="text" placeholder="08/27" maxlength="5" />
+            </div>
+            <div class="form-group">
+              <label for="cardCVV">CVV</label>
+              <input id="cardCVV" type="password" placeholder="•••" maxlength="3" />
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-outline" id="backToAddr">← Back</button>
+          <button class="btn btn-primary" id="payNextBtn">Review Order →</button>
+        </div>
+      </section>
+
+      <!-- ====== STEP 3: Confirm ====== -->
+      <section class="checkout-card glass hidden" id="step3">
+        <h2 class="step-title">✅ Review & Confirm</h2>
+
+        <div class="confirm-block" id="confirmAddress">
+          <h3>📦 Deliver To</h3>
+          <p id="confirmAddrText"></p>
+        </div>
+
+        <div class="confirm-block" id="confirmPayment">
+          <h3>💳 Payment</h3>
+          <p id="confirmPayText"></p>
+        </div>
+
+        <div class="confirm-block">
+          <h3>🛍️ Items</h3>
+          <div id="confirmItems"></div>
+        </div>
+
+        <div class="confirm-total">
+          <span>Grand Total</span>
+          <span id="confirmTotal" class="gradient-text">₹0</span>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="placeOrderBtn">🎉 Place Order</button>
+      </section>
+
+      <!-- ====== SUCCESS ====== -->
+      <section class="checkout-card glass hidden success-card" id="successCard">
+        <div class="success-anim" id="successAnim">
+          <div class="checkmark-circle">
+            <div class="checkmark">✓</div>
+          </div>
+        </div>
+        <h2 class="success-title">Order Placed Successfully!</h2>
+        <p class="success-sub">Your order <strong id="orderIdDisplay">#ORD-0001</strong> has been confirmed.</p>
+        <p class="success-sub">Estimated delivery: <strong>3–5 business days</strong> 🚀</p>
+        <div class="success-actions">
+          <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+          <a href="#"          class="btn btn-outline" id="trackOrder">Track Order</a>
+        </div>
+      </section>
+
+    </div><!-- /checkout-layout -->
+
+    <!-- Order Summary Sidebar -->
+    <aside class="order-summary-sidebar glass" id="orderSummarySidebar">
+      <h2>Order Summary</h2>
+      <div id="sidebarItems"></div>
+      <hr/>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span id="sidebarTotal" class="gradient-text">₹0</span>
+      </div>
+      <div class="secure-badge">🔒 100% Safe & Secure</div>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    <p class="footer-copy">© 2024 ShopEase – Academic DBMS Project</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

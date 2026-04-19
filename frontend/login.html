@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register – ShopEase</title>
+  <meta name="description" content="Login or create an account on ShopEase." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-bg">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- ====== Logo ====== -->
+    <a href="index.html" class="logo auth-logo">
+      <span class="logo-icon">🛒</span> Shop<strong>Ease</strong>
+    </a>
+
+    <!-- ====== Card ====== -->
+    <div class="auth-card glass">
+
+      <!-- Tab switcher -->
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" id="tabLogin"    role="tab" aria-selected="true"  data-target="loginForm">Login</button>
+        <button class="auth-tab"        id="tabRegister" role="tab" aria-selected="false" data-target="registerForm">Register</button>
+      </div>
+
+      <!-- ─── LOGIN FORM ─── -->
+      <form class="auth-form" id="loginForm" novalidate>
+        <h1 class="auth-title">Welcome Back 👋</h1>
+
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input id="loginEmail" type="email" placeholder="you@example.com" required autocomplete="email" />
+          <span class="error-msg" id="loginEmailErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-icon-wrap">
+            <input id="loginPassword" type="password" placeholder="Enter password" required autocomplete="current-password" />
+            <button type="button" class="toggle-pw" data-target="loginPassword">👁</button>
+          </div>
+          <span class="error-msg" id="loginPwErr"></span>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox-label">
+            <input id="rememberMe" type="checkbox" /> Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="loginBtn">Login →</button>
+
+        <div class="demo-creds">
+          <p>🔑 Demo credentials:</p>
+          <p><strong>Admin:</strong> admin@ecommerce.com / Admin@123</p>
+          <p><strong>Customer:</strong> riya@gmail.com / Riya@123</p>
+        </div>
+      </form>
+
+      <!-- ─── REGISTER FORM ─── -->
+      <form class="auth-form hidden" id="registerForm" novalidate>
+        <h1 class="auth-title">Create Account 🚀</h1>
+
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input id="regName" type="text" placeholder="Riya Sharma" required />
+          <span class="error-msg" id="regNameErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail">Email Address</label>
+          <input id="regEmail" type="email" placeholder="you@example.com" required />
+          <span class="error-msg" id="regEmailErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regPhone">Phone Number</label>
+          <input id="regPhone" type="tel" placeholder="9XXXXXXXXX" pattern="[6-9][0-9]{9}" required />
+          <span class="error-msg" id="regPhoneErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <div class="input-icon-wrap">
+            <input id="regPassword" type="password" placeholder="Min 8 chars, 1 uppercase, 1 number" required />
+            <button type="button" class="toggle-pw" data-target="regPassword">👁</button>
+          </div>
+          <div class="pw-strength" id="pwStrengthBar">
+            <div class="pw-fill" id="pwFill"></div>
+          </div>
+          <span class="pw-label" id="pwLabel"></span>
+          <span class="error-msg" id="regPwErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regConfirm">Confirm Password</label>
+          <div class="input-icon-wrap">
+            <input id="regConfirm" type="password" placeholder="Re-enter password" required />
+            <button type="button" class="toggle-pw" data-target="regConfirm">👁</button>
+          </div>
+          <span class="error-msg" id="regConfirmErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input id="agreeTerms" type="checkbox" required />
+            I agree to the <a href="#">Terms &amp; Conditions</a>
+          </label>
+          <span class="error-msg" id="agreeErr"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="registerBtn">Create Account →</button>
+      </form>
+
+    </div><!-- /auth-card -->
+
+    <p class="auth-back"><a href="index.html">← Back to Store</a></p>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

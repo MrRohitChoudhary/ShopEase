@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase – Product Listing</title>
+  <meta name="description" content="Browse thousands of products on ShopEase – your one-stop e-commerce store." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🛒</span>
+        <span>Shop<strong>Ease</strong></span>
+      </a>
+
+      <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="Search products, brands…" autocomplete="off" />
+        <button id="searchBtn" aria-label="Search">🔍</button>
+      </div>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-icon" id="cartLink" title="Cart">🛒 <span class="badge"
+            id="cartCount">0</span></a>
+        <a href="login.html" class="nav-icon" id="loginLink" title="Login">👤 Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="hero">
+    <div class="hero-content container">
+      <div class="hero-badge">🔥 Mega Sale – Up to 60% Off</div>
+      <h1 class="hero-title">Discover Products<br />You'll <span class="gradient-text">Love</span></h1>
+      <p class="hero-sub">Mobiles · Laptops · Fashion · Books · Sports & More</p>
+      <a href="#products" class="btn btn-primary" id="shopNowBtn">Shop Now →</a>
+    </div>
+    <div class="hero-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+  </section>
+
+  <!-- ======== CATEGORY PILLS ======== -->
+  <section class="categories container" id="categories">
+    <h2 class="section-title">Browse Categories</h2>
+    <div class="category-pills" id="categoryPills">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="Mobiles">📱 Mobiles</button>
+      <button class="pill" data-cat="Laptops">💻 Laptops</button>
+      <button class="pill" data-cat="Men's Clothing">👔 Men</button>
+      <button class="pill" data-cat="Women's Clothing">👗 Women</button>
+      <button class="pill" data-cat="Kitchen Appliances">🍳 Kitchen</button>
+      <button class="pill" data-cat="Books">📚 Books</button>
+      <button class="pill" data-cat="Sports & Fitness">⚽ Sports</button>
+    </div>
+  </section>
+
+  <!-- ======== PRODUCTS GRID ======== -->
+  <section class="products-section container" id="products">
+    <div class="section-header">
+      <h2 class="section-title">Featured Products</h2>
+      <select id="sortSelect" class="sort-select">
+        <option value="default">Sort By</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Cards rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ======== PRODUCT MODAL ======== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="productModal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <span class="modal-img-placeholder" id="modalEmoji"></span>
+        </div>
+        <div class="modal-info">
+          <span class="modal-badge" id="modalBadge"></span>
+          <h2 class="modal-title" id="modalName"></h2>
+          <p class="modal-brand" id="modalBrand"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-meta">
+            <span class="modal-price" id="modalPrice"></span>
+            <span class="modal-rating" id="modalRating"></span>
+          </div>
+          <div class="qty-row">
+            <label for="modalQty">Qty:</label>
+            <input id="modalQty" type="number" value="1" min="1" max="10" />
+          </div>
+          <button class="btn btn-primary btn-full" id="modalAddCart">🛒 Add to Cart</button>
+          <a href="order.html" class="btn btn-outline btn-full" id="modalBuyNow">⚡ Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TOAST ======== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo">🛒 Shop<strong>Ease</strong></div>
+        <p class="footer-sub">Academic DBMS Project – E-Commerce System</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="order.html">Orders</a>
+        <a href="cart.html">Cart</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2024 ShopEase </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
